@@ -59,7 +59,7 @@ public class ContentParser {
      */
     public void replaceUrlImgToMwLocalImg(StringBuilder parsedContent, Map<String, Path> requestAttachments, String requestID) {
         Document doc = Jsoup.parseBodyFragment(parsedContent.toString(), "UTF-8");
-        Elements imgElements = doc.select("img[src~=^https://.*.avp.ru/arsys/]");
+        Elements imgElements = doc.select("img[src~=^https://.*/arsys/]");
         if (!imgElements.isEmpty()) {
             doc.outputSettings().syntax(Document.OutputSettings.Syntax.html);
             String html = doc.body().html();
